@@ -1,0 +1,34 @@
+<form action="/new" method="POST">
+  <fieldset>
+    <legend>New Message</legend>
+    <label>
+      Name:
+      <input
+        id="name"
+        name="messageName"
+        type="text"
+        minlength="3"
+        maxlength="20"
+      />
+    </label>
+    <label>
+      Message:
+      <textarea
+        type="text"
+        id="message"
+        name="messageTest"
+        rows="5"
+        cols="50"
+      ></textarea>
+    </label>
+    <label>
+      Country:
+      <select name="messageCountry" id="country">
+        <option value="" disabled selected>Select an option</option>
+        <% countries.forEach(country => { %> <%- include("./countryOption.ejs",
+        {country}) %> <% }) %>
+      </select>
+    </label>
+  </fieldset>
+  <button type="submit">Send Message</button>
+</form>
