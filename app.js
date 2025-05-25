@@ -5,6 +5,19 @@ import { dirname } from "path";
 import { indexRouter } from "./routes/indexRouter.js";
 import { newMessageRouter } from "./routes/newMessageRouter.js";
 
+/*
+  Call this project Odinite's Messages of Inspiration
+
+  A messaging board where people can add "post-it notes styled" messages to
+  encourage their fellow students from The Odin Project. 
+
+  -- Form Fields --
+  Name
+  Country
+  Encouraging Message 
+
+*/
+
 // Static Variables
 const PORT = 8000;
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +28,7 @@ const app = express();
 app.listen(PORT, "localhost", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+app.use(express.urlencoded({ extended: true }));
 
 // Serve Static Asserts
 app.use(express.static("public"));
@@ -23,5 +37,5 @@ app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get("/", indexRouter);
-app.get("/new", newMessageRouter);
+app.use("/", indexRouter);
+app.use("/new", newMessageRouter);
