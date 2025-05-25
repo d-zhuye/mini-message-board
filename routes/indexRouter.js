@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { formatMessages } from "../util.js";
 
 const indexRouter = Router();
 
@@ -17,7 +18,8 @@ const messages = [
 ];
 
 indexRouter.get("/", (req, res) => {
-  res.render("../views/index", { messages });
+  const formattedMessages = formatMessages(messages);
+  res.render("../views/index", { messages: formattedMessages });
 });
 
 export { indexRouter };
