@@ -19,14 +19,14 @@ import { newMessageRouter } from "./routes/newMessageRouter.js";
 */
 
 // Static Variables
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Server Configuration
 const app = express();
-app.listen(PORT, "localhost", () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
 app.use(express.urlencoded({ extended: true }));
 
