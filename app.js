@@ -16,6 +16,9 @@ app.listen(PORT, "localhost", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
+// Serve Static Asserts
+app.use(express.static("public"));
+
 // Views Template Configuration
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
