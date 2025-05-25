@@ -1,21 +1,8 @@
 import { Router } from "express";
 import { formatMessages } from "../util.js";
+import { messages } from "../db.js";
 
 const indexRouter = Router();
-
-// sample messages
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
 
 indexRouter.get("/", (req, res) => {
   const formattedMessages = formatMessages(messages);
