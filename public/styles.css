@@ -1,1 +1,22 @@
+div.messages-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+}
 
+span.message {
+  display: flex;
+  gap: 15px;
+}
+
+span.message:hover {
+  font-weight: bold;
+}
+
+p.time {
+  width: 50px;
+}
+
+p.user {
+  width: 100px;
+}
