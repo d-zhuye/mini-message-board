@@ -2,4 +2,7 @@
   <p class="time"><%= message.added %></p>
   <p class="user"><%= message.user %></p>
   <p class="text"><%= message.text %></p>
+  <% if (message.country) { %>
+  <p class="country"><%= message.country %></p>
+  <% } %>
 </span>
