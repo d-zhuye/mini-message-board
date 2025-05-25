@@ -2,6 +2,7 @@
 <html lang="en">
   <%- include("./partials/head") %>
   <body>
+    <%- include("./partials/navBar.ejs") %>
     <div class="messages-container">
       <% messages.forEach(message => { %> <%- include("./partials/messages",
       {message: message}); %> <% }); %>
