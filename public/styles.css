@@ -1,22 +1,102 @@
+:root {
+  --faded-text: rgba(0, 0, 0, 0.75);
+}
+
+body {
+  padding: 10px 10vw;
+}
+
 div.messages-container {
   display: flex;
-  flex-direction: column;
-  padding: 10px 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
-span.message {
+/* Header  */
+header {
+  padding: 50px 30px;
   display: flex;
-  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-span.message:hover {
-  font-weight: bold;
+header a {
+  text-decoration: none;
+}
+
+a.site-name {
+  font-weight: 900;
+  color: rgb(169, 149, 36);
+  font-size: 3rem;
+  letter-spacing: -0.15rem;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  gap: 30px;
+}
+
+nav a {
+  font-size: 1.75rem;
+  color: black;
+  padding-bottom: 5px;
+}
+
+nav a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+/* Message Container */
+span.message {
+  width: clamp(250px, 20vw, 400px);
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px;
+
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+span.message > * {
+  width: 100%;
 }
 
 p.time {
-  width: 50px;
+  text-align: right;
+  margin: 0;
+  padding-top: 10px;
+  color: var(--faded-text);
+  letter-spacing: 0.2rem;
 }
 
-p.user {
-  width: 100px;
+p.text {
+  font-size: 1.5rem;
+}
+
+/*Message Container: Author Info Section */
+
+div.message-author-info {
+  margin-top: auto;
+  border-top: 1px dotted rgba(0, 0, 0, 0.6);
+  color: var(--faded-text);
+}
+
+p.author {
+  font-size: 1.25rem;
+}
+
+p.country {
+  font-style: italic;
+}
+
+span.message:hover {
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
 }
