@@ -13,6 +13,14 @@
       />
     </label>
     <label>
+      Country:
+      <select name="messageCountry" id="messageCountry" required>
+        <option value="" disabled selected>Select an option</option>
+        <% countries.forEach(country => { %> <%- include("./countryOption.ejs",
+        {country}) %> <% }) %>
+      </select>
+    </label>
+    <label>
       Message:
       <textarea
         type="text"
@@ -20,17 +28,9 @@
         name="messageText"
         rows="5"
         cols="50"
-        maxlength="250"
+        maxlength="200"
         required
       ></textarea>
-    </label>
-    <label>
-      Country:
-      <select name="messageCountry" id="messageCountry" required>
-        <option value="" disabled selected>Select an option</option>
-        <% countries.forEach(country => { %> <%- include("./countryOption.ejs",
-        {country}) %> <% }) %>
-      </select>
     </label>
   </fieldset>
   <button type="submit">Send Message</button>
