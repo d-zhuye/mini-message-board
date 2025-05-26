@@ -1,8 +1,13 @@
-<span class="message">
+<span
+  class="message"
+  style="background-color: <%= message.color || '#FFF9B1' %>"
+>
   <p class="time"><%= message.created_at %></p>
-  <p class="user"><%= message.user %></p>
   <p class="text"><%= message.text %></p>
-  <% if (message.country) { %>
-  <p class="country"><%= message.country %></p>
-  <% } %>
+  <div class="message-author-info">
+    <p class="author"><%= message.author %></p>
+    <% if (message.country) { %>
+    <p class="country">from <%= message.country %></p>
+    <% } %>
+  </div>
 </span>
