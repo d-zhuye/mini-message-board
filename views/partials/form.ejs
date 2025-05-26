@@ -4,26 +4,28 @@
     <label>
       Name:
       <input
-        id="name"
-        name="messageName"
+        id="messageAuthor"
+        name="messageAuthor"
         type="text"
         minlength="3"
         maxlength="20"
+        required
       />
     </label>
     <label>
       Message:
       <textarea
         type="text"
-        id="message"
+        id="messageText"
         name="messageText"
         rows="5"
         cols="50"
+        required
       ></textarea>
     </label>
     <label>
       Country:
-      <select name="messageCountry" id="country">
+      <select name="messageCountry" id="messageCountry" required>
         <option value="" disabled selected>Select an option</option>
         <% countries.forEach(country => { %> <%- include("./countryOption.ejs",
         {country}) %> <% }) %>
