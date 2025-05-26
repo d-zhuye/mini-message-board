@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { getAllCountries } from "../util.js";
-import { format } from "date-fns";
+import { getAllCountries, getBackgroundColor } from "../util.js";
 import { supabase } from "../config/supabaseClient.js";
 
 const newMessageRouter = Router();
@@ -18,6 +17,7 @@ newMessageRouter.post("/", async (req, res) => {
     author: messageAuthor,
     country: messageCountry,
     text: messageText,
+    color: getBackgroundColor(),
   });
 
   if (error) {
