@@ -1,102 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
 :root {
   --faded-text: rgba(0, 0, 0, 0.75);
+  --bright-yellow: #ffea00;
 }
 
-body {
-  padding: 10px 10vw;
+* {
+  box-sizing: border-box;
 }
 
-div.messages-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
+@media screen {
+  body {
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  body > * {
+    padding: 10px 5vw;
+  }
+
+  div.messages-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  /* Header  */
+  header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 0px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.4);
+  }
+
+  header a {
+    text-decoration: none;
+  }
+
+  a.site-name {
+    font-weight: 900;
+    color: #c2a100;
+    font-size: 2rem;
+    letter-spacing: -0.2rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav > ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    gap: 30px;
+  }
+
+  ul > li {
+    padding: 5px 10px;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    color: black;
+    padding-bottom: 5px;
+  }
+
+  li.navbar-new {
+    background-color: var(--bright-yellow);
+    border-radius: 20px;
+  }
+
+  nav a:hover {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+  }
+
+  div#main {
+    flex-grow: 1;
+  }
+
+  /* Message Container */
+  section.messages-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 15px 0px;
+  }
+  span.message {
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    letter-spacing: 0.05rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 30px;
+
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  span.message > * {
+    width: 100%;
+  }
+
+  p.time {
+    text-align: right;
+    margin: 0;
+    padding-top: 10px;
+    color: var(--faded-text);
+    letter-spacing: 0.2rem;
+  }
+
+  p.text {
+    font-family: "Patrick Hand";
+    font-size: 1.75rem;
+    font-weight: 600;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Message Container: Author Info Section */
+
+  div.message-author-info {
+    margin-top: auto;
+    border-top: 1px dotted rgba(0, 0, 0, 0.6);
+    color: var(--faded-text);
+  }
+
+  p.author {
+    font-size: 1.25rem;
+  }
+
+  p.country {
+    font-style: italic;
+  }
+
+  span.message:hover {
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Rules Container */
+  div.rules-container {
+    padding-bottom: 30px;
+  }
+
+  /* New Message Form */
+  form {
+    max-width: 700px;
+    background-color: #fff9b1;
+    position: relative;
+    padding: 30px 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    margin: 0px auto;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  legend {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+  }
+
+  label,
+  input,
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+  }
+
+  label {
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 5px 10px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  select#messageCountry {
+    width: 80%;
+  }
+
+  form > button {
+    display: block;
+    width: 80%;
+    margin: 40px auto 10px;
+    padding: 5px 20px;
+    font-weight: 800;
+    font-size: 1.15rem;
+  }
+
+  /* Footer */
+  footer {
+    margin: 40px 0px 15px;
+    text-align: center;
+  }
 }
 
-/* Header  */
-header {
-  padding: 50px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+@media screen and (min-width: 768px) {
+  body > * {
+    padding: 10px 10vw;
+  }
+  header {
+    text-align: left;
+  }
 
-header a {
-  text-decoration: none;
-}
+  a.site-name {
+    font-size: 2.5rem;
+  }
 
-a.site-name {
-  font-weight: 900;
-  color: rgb(169, 149, 36);
-  font-size: 3rem;
-  letter-spacing: -0.15rem;
-}
-
-nav > ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  padding: 0;
-  gap: 30px;
-}
-
-nav a {
-  font-size: 1.75rem;
-  color: black;
-  padding-bottom: 5px;
-}
-
-nav a:hover {
-  cursor: pointer;
-  border-bottom: 1px solid black;
-}
-
-/* Message Container */
-span.message {
-  width: clamp(250px, 20vw, 400px);
-  aspect-ratio: 1 / 1;
-  text-align: center;
-  letter-spacing: 0.1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 30px;
-
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-span.message > * {
-  width: 100%;
-}
-
-p.time {
-  text-align: right;
-  margin: 0;
-  padding-top: 10px;
-  color: var(--faded-text);
-  letter-spacing: 0.2rem;
-}
-
-p.text {
-  font-size: 1.5rem;
-}
-
-/*Message Container: Author Info Section */
-
-div.message-author-info {
-  margin-top: auto;
-  border-top: 1px dotted rgba(0, 0, 0, 0.6);
-  color: var(--faded-text);
-}
-
-p.author {
-  font-size: 1.25rem;
-}
-
-p.country {
-  font-style: italic;
-}
-
-span.message:hover {
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  form {
+    padding: 5%;
+  }
 }
