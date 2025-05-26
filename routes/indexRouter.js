@@ -9,10 +9,7 @@ indexRouter.get("/", async (req, res) => {
     .from("messages")
     .select("*")
     .order("created_at", { ascending: false });
-
-  console.log(data);
   const formattedMessages = formatMessages(data);
-  console.log(formattedMessages);
   res.render("../views/index", { messages: formattedMessages });
 });
 
